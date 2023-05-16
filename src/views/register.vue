@@ -1,73 +1,38 @@
+<!-- eslint-disable vue/first-attribute-linebreak -->
 <template>
     <div class="register">
-        <el-form ref="registerRef" :model="registerForm" :rules="registerRules" class="register-form">
-            <h3 class="title">若依后台管理系统</h3>
-            <el-form-item prop="username">
-                <el-input
-                    v-model="registerForm.username"
-                    type="text"
-                    size="large"
-                    auto-complete="off"
-                    placeholder="账号"
-                >
-                    <template #prefix
-                        ><svg-icon icon-class="user" class="el-input__icon input-icon"
-                    /></template>
+        <el-form ref="registerRef" label-width="150" :model="registerForm" :rules="registerRules"
+            :hide-required-asterisk="true" class="register-form">
+            <h3 class="title">欢迎注册MetaRoad+</h3>
+            <el-form-item label="用户名" prop="username">
+                <el-input v-model="registerForm.username" type="text" size="large" auto-complete="off" placeholder="账号">
+                    <template #prefix><svg-icon icon-class="user" class="el-input__icon input-icon" /></template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop="password">
-                <el-input
-                    v-model="registerForm.password"
-                    type="password"
-                    size="large"
-                    auto-complete="off"
-                    placeholder="密码"
-                    @keyup.enter="handleRegister"
-                >
-                    <template #prefix
-                        ><svg-icon icon-class="password" class="el-input__icon input-icon"
-                    /></template>
+            <el-form-item label="密码" prop="password">
+                <el-input v-model="registerForm.password" type="password" size="large" auto-complete="off" placeholder="密码"
+                    @keyup.enter="handleRegister">
+                    <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop="confirmPassword">
-                <el-input
-                    v-model="registerForm.confirmPassword"
-                    type="password"
-                    size="large"
-                    auto-complete="off"
-                    placeholder="确认密码"
-                    @keyup.enter="handleRegister"
-                >
-                    <template #prefix
-                        ><svg-icon icon-class="password" class="el-input__icon input-icon"
-                    /></template>
+            <el-form-item label="确认密码" prop="confirmPassword">
+                <el-input v-model="registerForm.confirmPassword" type="password" size="large" auto-complete="off"
+                    placeholder="确认密码" @keyup.enter="handleRegister">
+                    <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
                 </el-input>
             </el-form-item>
-            <el-form-item prop="code" v-if="captchaEnabled">
-                <el-input
-                    size="large"
-                    v-model="registerForm.code"
-                    auto-complete="off"
-                    placeholder="验证码"
-                    style="width: 63%"
-                    @keyup.enter="handleRegister"
-                >
-                    <template #prefix
-                        ><svg-icon icon-class="validCode" class="el-input__icon input-icon"
-                    /></template>
+            <el-form-item v-if="captchaEnabled" prop="code">
+                <el-input v-model="registerForm.code" size="large" auto-complete="off" placeholder="验证码" style="width: 63%"
+                    @keyup.enter="handleRegister">
+                    <template #prefix><svg-icon icon-class="validCode" class="el-input__icon input-icon" /></template>
                 </el-input>
                 <div class="register-code">
-                    <img :src="codeUrl" @click="getCode" class="register-code-img" />
+                    <img :src="codeUrl" class="register-code-img" @click="getCode" />
                 </div>
             </el-form-item>
             <el-form-item style="width: 100%">
-                <el-button
-                    :loading="loading"
-                    size="large"
-                    type="primary"
-                    style="width: 100%"
-                    @click.prevent="handleRegister"
-                >
+                <el-button :loading="loading" size="large" type="primary" style="width: 100%"
+                    @click.prevent="handleRegister">
                     <span v-if="!loading">注 册</span>
                     <span v-else>注 册 中...</span>
                 </el-button>
@@ -172,16 +137,16 @@ function getCode() {
 
 getCode();
 </script>
-
-<style lang="scss" scoped>
+<style  lang="scss" scoped>
 .register {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-image: url('../assets/images/login-background.jpg');
+    // background-image: url('../assets/images/login-background.jpg');
     background-size: cover;
 }
+
 .title {
     margin: 0px auto 30px auto;
     text-align: center;
@@ -191,34 +156,41 @@ getCode();
 .register-form {
     border-radius: 6px;
     background: #ffffff;
-    width: 400px;
+    width: 800px;
     padding: 25px 25px 5px 25px;
+
     .el-input {
         height: 40px;
+
         input {
             height: 40px;
         }
     }
+
     .input-icon {
         height: 39px;
         width: 14px;
         margin-left: 0px;
     }
 }
+
 .register-tip {
     font-size: 13px;
     text-align: center;
     color: #bfbfbf;
 }
+
 .register-code {
     width: 33%;
     height: 40px;
     float: right;
+
     img {
         cursor: pointer;
         vertical-align: middle;
     }
 }
+
 .el-register-footer {
     height: 40px;
     line-height: 40px;
@@ -231,6 +203,7 @@ getCode();
     font-size: 12px;
     letter-spacing: 1px;
 }
+
 .register-code-img {
     height: 40px;
     padding-left: 12px;

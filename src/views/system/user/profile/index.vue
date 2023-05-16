@@ -1,7 +1,7 @@
 <template>
     <div class="app-container">
         <el-row :gutter="20">
-            <el-col :span="6" :xs="24">
+            <el-col :span="12" :xs="24" :offset="6">
                 <el-card class="box-card">
                     <template #header>
                         <div class="clearfix">
@@ -14,7 +14,9 @@
                         </div>
                         <ul class="list-group list-group-striped">
                             <li class="list-group-item">
-                                <svg-icon icon-class="user" />用户名称
+                                <div>
+                                    <svg-icon icon-class="user" />用户名称
+                                </div>
                                 <div class="pull-right">{{ state.user.userName }}</div>
                             </li>
                             <li class="list-group-item">
@@ -43,7 +45,7 @@
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="18" :xs="24">
+            <!-- <el-col :span="18" :xs="24">
                 <el-card>
                     <template #header>
                         <div class="clearfix">
@@ -59,7 +61,7 @@
                         </el-tab-pane>
                     </el-tabs>
                 </el-card>
-            </el-col>
+            </el-col> -->
         </el-row>
     </div>
 </template>

@@ -2,7 +2,7 @@ import defaultSettings from '@/settings';
 import { useDynamicTitle } from '@/utils/dynamicTitle';
 import { defineStore } from 'pinia';
 
-const { sideTheme, showSettings, topNav, tagsView, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings;
+const { sideTheme, showSettings, topNav, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings;
 
 const storageSetting = JSON.parse(localStorage.getItem('layout-setting') ?? '{}') || '';
 
@@ -13,7 +13,6 @@ const useSettingsStore = defineStore('settings', {
         sideTheme: storageSetting.sideTheme || sideTheme,
         showSettings: showSettings,
         topNav: storageSetting.topNav === undefined ? topNav : storageSetting.topNav,
-        tagsView: storageSetting.tagsView === undefined ? tagsView : storageSetting.tagsView,
         fixedHeader: storageSetting.fixedHeader === undefined ? fixedHeader : storageSetting.fixedHeader,
         sidebarLogo: storageSetting.sidebarLogo === undefined ? sidebarLogo : storageSetting.sidebarLogo,
         dynamicTitle: storageSetting.dynamicTitle === undefined ? dynamicTitle : storageSetting.dynamicTitle,

@@ -185,6 +185,14 @@
                         prop="phonenumber"
                         width="120"
                     />
+                    <el-table-column
+                        v-if="columns[7].visible"
+                        key="openid"
+                        label="微信openid"
+                        align="center"
+                        prop="openid"
+
+                    />
                     <el-table-column v-if="columns[5].visible" key="status" label="状态" align="center">
                         <template #default="scope">
                             <el-switch
@@ -496,6 +504,7 @@ const columns = ref([
     { key: 4, label: `手机号码`, visible: true },
     { key: 5, label: `状态`, visible: true },
     { key: 6, label: `创建时间`, visible: true },
+    { key: 7, label: `微信openid`, visible: true },
 ]);
 
 const data = reactive<{

@@ -55,31 +55,31 @@
                 prop="menuName"
                 label="菜单名称"
                 :show-overflow-tooltip="true"
-                width="160"
+                width="200"
             ></el-table-column>
             <el-table-column prop="icon" label="图标" align="center" width="100">
                 <template #default="scope">
                     <svg-icon :icon-class="scope.row.icon" />
                 </template>
             </el-table-column>
-            <el-table-column prop="orderNum" label="排序" width="60"></el-table-column>
+            <el-table-column prop="orderNum" label="排序" width="100"></el-table-column>
             <el-table-column prop="perms" label="权限标识" :show-overflow-tooltip="true"></el-table-column>
             <el-table-column
                 prop="component"
                 label="组件路径"
                 :show-overflow-tooltip="true"
             ></el-table-column>
-            <el-table-column prop="status" label="状态" width="80">
+            <el-table-column prop="status" label="状态" width="100">
                 <template #default="scope">
                     <dict-tag :options="sys_normal_disable" :value="scope.row.status" />
                 </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="160" prop="createTime">
+            <el-table-column label="创建时间" align="center" width="200" prop="createTime">
                 <template #default="scope">
                     <span>{{ parseTime(scope.row.createTime) }}</span>
                 </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="200" class-name="small-padding fixed-width">
+            <el-table-column label="操作" align="center" width="350" class-name="small-padding fixed-width">
                 <template #default="scope">
                     <el-button
                         v-hasPermi="['system:menu:edit']"

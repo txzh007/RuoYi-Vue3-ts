@@ -73,13 +73,6 @@
         </div>
 
         <div class="drawer-item">
-            <span>开启 Tags-Views</span>
-            <span class="comp-style">
-                <el-switch v-model="tagsView" class="drawer-switch" />
-            </span>
-        </div>
-
-        <div class="drawer-item">
             <span>固定 Header</span>
             <span class="comp-style">
                 <el-switch v-model="fixedHeader" class="drawer-switch" />
@@ -149,13 +142,7 @@ const topNav = computed({
         }
     },
 });
-/** 是否需要tagview */
-const tagsView = computed({
-    get: () => storeSettings.value.tagsView,
-    set: val => {
-        settingsStore.changeSetting({ key: 'tagsView', value: val });
-    },
-});
+
 /**是否需要固定头部 */
 const fixedHeader = computed({
     get: () => storeSettings.value.fixedHeader,
@@ -193,7 +180,6 @@ function saveSetting() {
     proxy!.$modal.loading('正在保存到本地，请稍候...');
     let layoutSetting = {
         topNav: storeSettings.value.topNav,
-        tagsView: storeSettings.value.tagsView,
         fixedHeader: storeSettings.value.fixedHeader,
         sidebarLogo: storeSettings.value.sidebarLogo,
         dynamicTitle: storeSettings.value.dynamicTitle,
